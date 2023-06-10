@@ -1,27 +1,42 @@
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
+//cd OneDrive\Documents\Project\createDB
+
+// create server here - express
+//import express
+const express = require('express');
+const cors = require('cors');
+
+require('dotenv').config();
+
+//create app
 const app = express();
-const port = process.env.PORT || 3000;
 
-// CORS- Simple Usage (Enable All CORS Requests)
-app.use(cors());
-// BODYPARSER- parse application/json
-app.use(bodyParser.json());
-// BODYPARSER- parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
+var corsOptions = {
+    origin: "http://localhost:8081"
+  };
 
-const Users = require("./routes/hr.routes");
-app.use("/users", Users);
+// app.use(cors(corsOptions));
+//to allow input using JSON format
+app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
 
-// SEQUELIZE- Database safety check
-const db = require("./models");
-db.sequelize.sync();
+//connect database
+const db = require('./models');
 
-app.get("/", (req, res) => {
-	res.json({ message: "Welcome to HR Software." });
+//sync database
+db.sequelize.sync({force:true}).then(()=>{
+    console.log('All models are sync-ed')
+});
+const users = require('./controllers/user.controller');
+app.post('/register', users.register);
+
+app.post('/login', users.login);
+// import all router and pass app
+require('./routes/emp.route.js')(app);
+require('./routes/user.route.js')(app);
+
+// listen to port
+const PORT = process.env.PORT || 8080;
+app.listen(PORT,()=>{
+    console.log("listening on port "+ PORT);
 });
 
-app.listen(port, () => {
-	console.log(`Server is running on port ${port}`);
-});

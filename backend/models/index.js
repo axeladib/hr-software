@@ -1,25 +1,34 @@
-const dbConfig = require("../config/db.config.js");
-const Sequelize = require("sequelize");
+const {Sequelize, DataTypes} = require('sequelize');
 
-// CREATE SEQUELIZE INSTANCE
-const db = {};
-
-// DEFINE SEQUALIZE INSTANCE
-// SEQUELIZE- Option 3: Passing parameters separately (other dialects)
-const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-	host: dbConfig.HOST,
-	dialect: dbConfig.dialect,
-
-	pool: {
-		max: dbConfig.pool.max,
-		min: dbConfig.pool.min,
-		acquire: dbConfig.pool.acquire,
-		idle: dbConfig.pool.idle,
-	},
+//connecting to database
+const sequelize = new Sequelize('testdb', 'admin', 'admin123',{
+                                host: 'localhost',
+                                dialect: 'mysql',
+                                //define pool on release lvl
 });
 
-// RETURN SEQUELIZE INSTANCE
+try{
+    sequelize.authenticate();
+    console.log('connected...');
+}catch(err){
+    console.error('unable to connect', err);
+}
+
+const db = {};
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+//initialize all entity in DB
+db.Employee = require('./emp.model.js')(sequelize,Sequelize,DataTypes);
+db.User = require('./user.model.js')(sequelize,Sequelize,DataTypes);
+
+//describe all relations under here
+db.User.hasOne(db.Employee,{
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE'
+});
+
+db.Employee.belongsTo(db.User);
 
 module.exports = db;
