@@ -2,7 +2,7 @@ import "../styles/LoginPage.scss";
 import { AiOutlineThunderbolt } from "react-icons/ai";
 const LoginPage = () => {
   return (
-    <div className="login__container">
+    <section className="login__container">
       <div className="login__form">
         {/* TODO: Hero text */}
         <div className="login__hero__text">
@@ -12,7 +12,7 @@ const LoginPage = () => {
         {/* TODO: Form description */}
         <div className="login__form__desc">
           <p>Enter your credential to access your admin account</p>
-          <p>Auto register with authorize company ID</p>
+          <p>Auto register with authorize company</p>
         </div>
         {/* TODO: Option to login with button */}
         <div className="login__form__button">
@@ -38,17 +38,21 @@ const LoginPage = () => {
         </div>
         {/* TODO: Input that user need to fill */}
         <div className="login__form__input">
-          <input placeholder="Company ID"></input>
-          <input placeholder="Company Email"></input>
-          <a href="./">Forgot Password?</a>
-          <input placeholder="Password"></input>
+          <div className="first__input">
+            <input placeholder="Company ID"></input>
+            <input placeholder="Company Email"></input>
+          </div>
+          <div className="second__input">
+            <input placeholder="Password"></input>
+            <a href="./">Forgot Password?</a>
+          </div>
           <button className="login__button">Login</button>
         </div>
+        <div className="desc__img">
+          <img src="/assets/desc.svg" alt="Features Display" />
+        </div>
       </div>
-      <div className="desc__img">
-        <img src="/assets/desc.svg" alt="Features Display" />
-      </div>
-    </div>
+    </section>
   );
 };
 export default LoginPage;
