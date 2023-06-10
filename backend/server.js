@@ -12,7 +12,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const Users = require("./routes/hr.routes");
-
 app.use("/users", Users);
 
 // SEQUELIZE- Database safety check
