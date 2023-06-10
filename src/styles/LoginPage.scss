@@ -34,12 +34,12 @@ $bp: (
     font-family: "Outfit";
     font-size: 45px;
     box-sizing: border-box;
-    background: rgb(70, 70, 66);
-    background: linear-gradient(
-      0deg,
-      rgba(70, 70, 66, 1) 0%,
-      rgba(114, 20, 218, 1) 71%
-    );
+    // background: rgb(70, 70, 66);
+    // background: linear-gradient(
+    //   0deg,
+    //   rgba(70, 70, 66, 1) 0%,
+    //   rgba(114, 20, 218, 1) 71%
+    // );
   }
 }
 
@@ -168,7 +168,7 @@ $bp: (
       }
     }
     .login__button {
-      margin: 0rem 1rem 0rem 0rem;
+      margin: 0rem 1rem 0rem 1.5rem;
       width: 28rem;
       padding: 0.7rem 0rem 0.7rem 0rem;
       font-size: 1.5rem;
@@ -191,4 +191,15 @@ $bp: (
       }
     }
   }
+
+
+
+
+
+
+
+
+
+
+  
 }
