@@ -43,8 +43,158 @@ $bp: (
   }
 }
 
-//Start styling
+// For larger screen
+@media (max-width: 1650px) {
+  .login__container {
+    display: flex;
+  justify-content: center;
+  }
+  .desc__img {
+    margin: 3rem 0rem 0rem 2rem;
+    img {
+      height: 45rem;
+      width: auto;
+    }
+  }
+  .login__form {
+    margin: 4rem 0rem 0rem 0rem;
+    .login__hero__text {
+      display: flex;
+      flex-wrap: wrap;
+
+      h1 {
+        font-size: 4rem;
+        font-weight: 500;
+      }
+      .icon {
+        height: 7rem;
+        width: 5rem;
+        color: $color;
+      }
+    }
+    .login__form__desc {
+      font-size: 2rem;
+      display: flex;
+      flex-direction: column;
+      font-weight: 400;
+    }
+    .login__form__button {
+      display: flex;
+      margin: 1rem 0rem 0rem 1.5rem;
+      .login__google {
+        button {
+          display: flex;
+          align-items: center;
+          padding: 0.5rem 2rem 0.5rem 2rem;
+          border: 2px solid $color;
+          border-radius: 0.8rem;
+          background-color: #ffffff;
+          img {
+            box-sizing: border-box;
+            height: 3rem;
+            width: 3rem;
+          }
+          .login__btn__text {
+            margin: 0rem 0rem 0rem 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 400;
+          }
+          &:hover {
+            background-color: #30a2ff;
+          }
+        }
+      }
+      .login__apple {
+        button {
+          display: flex;
+          align-items: center;
+          padding: 0.5rem 3.7rem 0.5rem 2.6rem;
+          margin: 0rem 0rem 0rem 2rem;
+          border: 2px solid $color;
+          border-radius: 0.8rem;
+          background-color: #ffffff;
+          img {
+            box-sizing: border-box;
+            height: 3rem;
+            width: 3rem;
+          }
+          .login__btn__text {
+            margin: 0rem 0rem 0rem 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 400;
+          }
+          &:hover {
+            background-color: #30a2ff;
+          }
+        }
+      }
+    }
+    .login__form__input {
+      .first__input {
+        display: flex;
+        flex-direction: column;
+
+        input {
+          width: 40rem;
+          height: 4rem;
+          box-sizing: border-box;
+          padding: 0rem 0rem 0rem 1.2rem;
+          border-radius: 0.8rem;
+          border: 2px solid #ffffff;
+          box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.25);
+          margin: 2rem 0rem 0rem 0rem;
+          font-size: 1.2rem;
+          font-weight: 400;
+        }
+      }
+      .second__input {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        input {
+          width: 40rem;
+          height: 4rem;
+          box-sizing: border-box;
+          padding: 0rem 0rem 0rem 1.2rem;
+          border-radius: 0.8rem;
+          border: 2px solid #ffffff;
+          box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.25);
+          margin: 2rem 0rem 0rem 0rem;
+          font-size: 1.2rem;
+          font-weight: 400;
+        }
+        a {
+          font-size: 1.2rem;
+          text-decoration: none;
+          margin-left: 67%;
+          margin-top: 0.5rem;
+        }
+      }
+    }
+    .login__button {
+      width: 40rem;
+      height: 4rem;
+      border-radius: 0.8rem;
+      background-color: #717ff8;
+      border: none;
+      font-size: 1.3rem;
+      color: #ffffff;
+      margin: 0rem 0rem 2rem 0rem;
+      &:hover {
+        background-color: #30a2ff;
+      }
+    }
+  }
+}
+
+//
+//
+//
+//Mobile or tablet view
 [class^="login__form"] {
+  //
+  //
+  //
   @include query(tablet) {
     margin-left: 0.5rem;
     margin-top: 1.5rem;
@@ -134,6 +284,7 @@ $bp: (
         display: flex;
         flex-direction: column;
         input {
+          width: 25rem;
           padding: 0rem 0rem 0rem 1.5rem;
           height: 3rem;
           border-radius: 0.7rem;
@@ -149,6 +300,7 @@ $bp: (
         flex-direction: column;
         margin: 1rem 1.8rem 0rem 0.5rem;
         input {
+          width: 25rem;
           padding: 0rem 0rem 0rem 1.5rem;
           height: 3rem;
           border-radius: 0.7rem;
@@ -162,15 +314,17 @@ $bp: (
           text-decoration: none;
           color: #717ff8;
           font-size: 1.2rem;
-          text-align: end;
-          margin: 0.2rem 0rem 0rem 0rem;
+          margin: 0.2rem 0rem 0rem 58%;
         }
       }
     }
+    //FIXME: Making the button responsive
+
     .login__button {
-      margin: 0rem 1rem 0rem 1.5rem;
-      width: 28rem;
-      padding: 0.7rem 0rem 0.7rem 0rem;
+      width: 26rem;
+      height: 4rem;
+      margin: 0rem 0rem 0rem 0rem;
+      padding: 0rem 0rem 0rem 0rem;
       font-size: 1.5rem;
       color: #ffffff;
       background-color: #717ff8;
@@ -191,15 +345,7 @@ $bp: (
       }
     }
   }
-
-
-
-
-
-
-
-
-
-
-  
 }
+//
+//
+//Dekstop and big size

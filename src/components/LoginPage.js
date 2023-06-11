@@ -48,9 +48,9 @@ const LoginPage = () => {
           </div>
           <button className="login__button">Login</button>
         </div>
-        <div className="desc__img">
-          <img src="/assets/desc.svg" alt="Features Display" />
-        </div>
+      </div>
+      <div className="desc__img">
+        <img src="/assets/desc.svg" alt="Features Display" />
       </div>
     </section>
   );
